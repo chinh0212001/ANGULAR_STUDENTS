@@ -3,6 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
 import {AuthService} from '../../service/auth.service';
 import {SignUpForm} from '../../model/SignUpForm';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ form:any={};
   hide = true;
   signUpForm:SignUpForm;
   status = 'Please fill in the form to create account!';
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService,
+              private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -42,9 +44,12 @@ form:any={};
       }
       if (data.message === 'Create_success!!!'){
         this.status = 'Create account success!!!';
+        localStorage.setItem("SUCCESS_KEY",this.status);
+        this.router.navigate(['login'])
       }
     },error => {
       console.log("error----->",error);
+
       this.status = 'Email invalid! Please try again!'
     });
   }
