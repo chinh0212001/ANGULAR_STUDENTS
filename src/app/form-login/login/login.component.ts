@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   form: any = {};
   hide = true;
   signInForm: SignInForm;
-  status = 'Please fill in the form to login!';
+  status = '';
 
   constructor(private authService: AuthService,
               private tokenService: TokenService,
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("check------------>",localStorage.getItem("SUCCESS_KEY"));
-    if ( != null){
+    if (localStorage.getItem("SUCCESS_KEY") != null){
       this.status = localStorage.getItem("SUCCESS_KEY");
     }else {
       this.status = 'Please fill in the form to login!';
