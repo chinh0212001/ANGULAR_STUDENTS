@@ -36,6 +36,8 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment.prod';
 import { SingerAvatarComponent } from './upload/singer-avatar/singer-avatar.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MutilpleAvatarComponent } from './upload/mutilple-avatar/mutilple-avatar.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -50,7 +52,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -67,7 +69,7 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatInputModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

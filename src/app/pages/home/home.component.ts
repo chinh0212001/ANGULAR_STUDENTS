@@ -184,4 +184,8 @@ export class HomeComponent {
   uploadAvatar($event: string) {
     console.log("avatar--->>>>>>>>>>>>>>",$event);
   }
+
+  uploadMultiple($event: string[]) {
+    console.log("$Event,,,>>>",$event);
+  }
 }
