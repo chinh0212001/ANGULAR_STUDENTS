@@ -42,6 +42,9 @@ import {AuthInterceptor} from './service/auth.interceptor';
 import {UpdateAvatarComponent} from './profile/update-avatar/update-avatar.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { DialogComponent } from './dialog/dialog/dialog.component';
+import {AuthGuard} from "./security/auth.guard";
+import { AdminManagerComponent } from './profile/admin-manager/admin-manager.component';
+import {AdminGuard} from "./security/admin.guard";
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -53,17 +56,17 @@ export const appRoutes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
     {
-        path: 'profile', component: ProfileComponent,
+        path: 'profile', component: ProfileComponent,canActivate:[AuthGuard],
         children: [
             // tslint:disable-next-line
-            {path: 'update-avatar', component: UpdateAvatarComponent}
-        ]
-    }
+            {path: 'update-avatar', component: UpdateAvatarComponent},
+            {path: 'admin' , component:AdminManagerComponent,canActivate:[AdminGuard]}
+        ]}
 ];
 
 @NgModule({
     // tslint:disable-next-line:max-line-length
-    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent],
+    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
