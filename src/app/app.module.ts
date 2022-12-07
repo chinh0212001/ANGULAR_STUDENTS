@@ -48,6 +48,7 @@ import {AdminGuard} from "./security/admin.guard";
 import { ListStudentsComponent } from './students/list-students/list-students.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
+import { CreateStudentsComponent } from './students/create-students/create-students.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -65,12 +66,13 @@ export const appRoutes: Routes = [
             {path: 'update-avatar', component: UpdateAvatarComponent},
             {path: 'admin' , component:AdminManagerComponent,canActivate:[AdminGuard]}
         ]},
-    {path: 'listStudent', component:ListStudentsComponent}
+    {path: 'listStudent', component:ListStudentsComponent},
+    {path:'createStudent',component:CreateStudentsComponent}
 ];
 
 @NgModule({
     // tslint:disable-next-line:max-line-length
-    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, ListStudentsComponent],
+    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, ListStudentsComponent, CreateStudentsComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
