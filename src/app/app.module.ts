@@ -45,6 +45,9 @@ import { DialogComponent } from './dialog/dialog/dialog.component';
 import {AuthGuard} from "./security/auth.guard";
 import { AdminManagerComponent } from './profile/admin-manager/admin-manager.component';
 import {AdminGuard} from "./security/admin.guard";
+import { ListStudentsComponent } from './students/list-students/list-students.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatTableModule} from "@angular/material/table";
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -61,12 +64,13 @@ export const appRoutes: Routes = [
             // tslint:disable-next-line
             {path: 'update-avatar', component: UpdateAvatarComponent},
             {path: 'admin' , component:AdminManagerComponent,canActivate:[AdminGuard]}
-        ]}
+        ]},
+    {path: 'listStudent', component:ListStudentsComponent}
 ];
 
 @NgModule({
     // tslint:disable-next-line:max-line-length
-    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent],
+    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, ListStudentsComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
@@ -84,7 +88,7 @@ export const appRoutes: Routes = [
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         MatInputModule,
-        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
+        RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, MatTableModule
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
