@@ -49,6 +49,8 @@ import { ListStudentsComponent } from './students/list-students/list-students.co
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import { CreateStudentsComponent } from './students/create-students/create-students.component';
+import { DeleteStudentComponent } from './students/delete-student/delete-student.component';
+import { UpdateStudentComponent } from './students/update-student/update-student.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent, data: {title: 'Home'}},
@@ -67,12 +69,13 @@ export const appRoutes: Routes = [
             {path: 'admin' , component:AdminManagerComponent,canActivate:[AdminGuard]}
         ]},
     {path: 'listStudent', component:ListStudentsComponent},
-    {path:'createStudent',component:CreateStudentsComponent}
+    {path:'createStudent',component:CreateStudentsComponent},
+    {path:'updateStudent/:id',component:UpdateStudentComponent}
 ];
 
 @NgModule({
     // tslint:disable-next-line:max-line-length
-    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, ListStudentsComponent, CreateStudentsComponent],
+    declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, ProfileComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, SingerAvatarComponent, MutilpleAvatarComponent, UpdateAvatarComponent, DialogComponent, AdminManagerComponent, ListStudentsComponent, CreateStudentsComponent, DeleteStudentComponent, UpdateStudentComponent],
     imports: [
         HttpClientModule,
         BrowserModule,

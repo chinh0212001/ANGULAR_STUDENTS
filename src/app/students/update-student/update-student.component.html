@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <mat-card-title class="alert alert-primary">Old Student</mat-card-title>
+                <div *ngIf="students">
+                    <b>Name Student: </b>
+                    <i style="color: mediumorchid">{{students.name}}</i>
+                    <br>
+                    <b>Age Student: </b>
+                    <i style="color: mediumorchid">{{students.age}}</i>
+                    <br>
+                    <img class="img" [src]="students.avatar">
+                    <br>
+                    <b>Address Student: </b>
+                    <i style="color: mediumorchid">{{students.address}}</i>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px">
+                <form class="edit-category" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <mat-card>
+                        <mat-form-field style="width: 350px" appearance="outline">
+                            <mat-label>name_student: </mat-label>
+                            <input name="name" #name="ngModel" [(ngModel)]="students.name" matInput placeholder="Placeholder" required>
+                            <mat-icon color="warn" matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-error *ngIf="name.hasError('required')">Name is required</mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field style="width: 350px" appearance="outline">
+                            <mat-label>age_student: </mat-label>
+                            <input name="age" #name="ngModel" [(ngModel)]="students.age" matInput placeholder="Placeholder" required>
+                            <mat-icon color="warn" matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-error *ngIf="name.hasError('required')">Name is required</mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field style="width: 350px" appearance="outline">
+                            <mat-label>address: </mat-label>
+                            <input name="address" #name="ngModel" [(ngModel)]="students.address" matInput placeholder="Placeholder" required>
+                            <mat-icon color="warn" matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-error *ngIf="name.hasError('required')">Name is required</mat-error>
+                        </mat-form-field>
+                        <br>
+                        <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update Student
+                        </button>
+                    </mat-card>
+                </form>
+                <app-singer-avatar (urlFormFirebase)="ChangeAvatar($event)"></app-singer-avatar>
+            </mat-card>
+        </div>
+    </div>
+</div>
