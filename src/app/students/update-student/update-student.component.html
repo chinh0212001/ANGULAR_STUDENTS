@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px">
-                <form class="edit-category" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
+                <form #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
                     <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <mat-card>
                         <mat-form-field style="width: 350px" appearance="outline">
@@ -48,6 +48,8 @@
                         </mat-form-field>
                         <br>
                         <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Update Student
+                        </button>
+                        <button routerLink="" mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Thoat ra ngoai
                         </button>
                     </mat-card>
                 </form>

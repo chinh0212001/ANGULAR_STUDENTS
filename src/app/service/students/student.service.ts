@@ -23,6 +23,10 @@ private API_LOCAL = environment.API_LOCAL+'student';
   detailStudent(id: number): Observable<any>{
     return this.http.get(this.API_STUDENT+'/'+id);
   }
+  deleteStudent(id:number,students:Student):Observable<Student>{
+    // @ts-ignore
+    return this.http.delete<Student>(this.API_STUDENT+'/'+id,students);
+  }
   
 }
 

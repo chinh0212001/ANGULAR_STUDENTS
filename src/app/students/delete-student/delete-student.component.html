@@ -1,9 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="col-12" style="margin-top: 20px">
-            <mat-card style="margin: 50px">
+        <div class="col-12" style="margin-top: 100px">
+            <mat-error>{{status}}</mat-error>
+            <form #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
 
-            </mat-card>
+                <mat-card style="margin: 30px 50px 50px">
+                    <mat-card-title class="alert alert-primary">Old Student</mat-card-title>
+                    <div *ngIf="students">
+                        <b>Name Student: </b>
+                        <i style="color: mediumorchid">{{students.name}}</i>
+                        <br>
+                        <b>Age Student: </b>
+                        <i style="color: mediumorchid">{{students.age}}</i>
+                        <br>
+                        <img class="img" [src]="students.avatar">
+                        <br>
+                        <b>Address Student: </b>
+                        <i style="color: mediumorchid">{{students.address}}</i>
+                    </div>
+                </mat-card>
+                <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">delete
+            </button>
+                <button routerLink="">thoat ra ngoai</button>
+            </form>
+
+
         </div>
     </div>
 </div>
